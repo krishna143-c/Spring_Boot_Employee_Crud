@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Onboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://images.hdqwalls.com/wallpapers/glass-crack-broken-glass-5t.jpg') no-repeat center center fixed; /* Add a background image */
+            background-size: cover; /* Cover the entire background */
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+
+        div {
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            width: 300px;
+            animation: fadeIn 1s;
+            backdrop-filter: blur(10px); /* Apply a blur effect */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Add a subtle border */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        input[type="text"], input[type="tel"] {
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="tel"]:focus {
+            border-color: #66afe9;
+            box-shadow: 0 0 5px rgba(102, 175, 233, 0.5);
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 100%; /* Full width for the button */
+        }
+
+        button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        
+        <form action="add" method="post">
+            Name: <input type="text" name="name" required>
+            Mobile: <input type="tel" pattern="[0-9]{10}" name="mobile" required>
+            Department: <input type="text" name="dept" required>
+            Salary: <input type="text" name="salary" required>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+</body>
+</html>

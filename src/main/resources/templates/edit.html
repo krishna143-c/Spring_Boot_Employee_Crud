@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit Employee</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f2f2f2;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+/* Fade-in animation for the form container */
+.form-container {
+	animation: fadeIn 1.5s ease-in-out;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	width: 300px;
+}
+
+/* Input focus animations */
+input[type="text"], input[type="tel"] {
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus, input[type="tel"]:focus {
+	border-color: #007bff;
+	box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+	transform: scale(1.05); /* Slightly enlarge the input field */
+}
+
+button {
+	background-color: #007bff;
+	color: white;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+	background-color: #0056b3;
+}
+
+/* Keyframes for fade-in animation */
+@
+keyframes fadeIn {from { opacity:0;
+	transform: translateY(-20px);
+}
+
+to {
+	opacity: 1;
+	transform: translateY(0);
+}
+}
+</style>
+</head>
+<body>
+	<div class="form-container">
+		<form action="addemp" method="post">
+			<input type="hidden" name="id" th:value="${employee.id}">
+			Name: <input type="text" name="name" required
+				th:value="${employee.name}"> Mobile: <input type="tel"
+				pattern="[0-9]{10}" name="mobile" required
+				th:value="${employee.mobile}"> Department: <input
+				type="text" name="dept" required th:value="${employee.dept}">
+			Salary: <input type="text" name="salary" required
+				th:value="${employee.salary}">
+			<button type="submit">Add</button>
+		</form>
+	</div>
+</body>
+</html>

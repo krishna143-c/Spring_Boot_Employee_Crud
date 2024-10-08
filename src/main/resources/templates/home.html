@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Infosys</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light background color */
+            animation: fadeIn 2s; /* Fade in effect for the entire body */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            color: #2c3e50; /* Dark blue color for the heading */
+            animation: slideIn 1s; /* Slide in effect for the heading */
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .button-container {
+            margin: 20px 0; /* Space between buttons */
+        }
+
+        button {
+            background-color: #3498db; /* Blue background for buttons */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Transition effect on hover */
+        }
+
+        button:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+        }
+
+        a {
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        ul {
+            list-style-type: none; /* Remove default bullet points */
+            padding: 0; /* Remove default padding */
+            text-align: center; /* Center the list */
+        }
+
+        li {
+            margin: 10px 0; /* Space between list items */
+        }
+    </style>
+</head>
+<body>
+    <div align="center">
+        <h1><b>Join On Board....</b><br><b>Infosys</b></h1>
+        <p>Register Your Details:</p>
+        <div class="button-container">
+            <ul>
+                <li><a href="/add"><button>Register</button></a></li>
+                <li><a href="/viewall"><button>Fetch All</button></a></li>
+                <li><a href="/viewbyid"><button>Fetch By ID</button></a></li>
+                <li><a href="/viewbyname"><button>Fetch By Name</button></a></li>
+                <li><a href="/viewbysal"><button>Fetch By Salary</button></a></li>
+            </ul>
+        </div>
+       <h1> <b th:text="${employe}"></b></h1>
+    </div>
+</body>
+</html>

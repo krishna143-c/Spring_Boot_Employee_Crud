@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        /* Animation for headings */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            width: 250px;
+            font-size: 1.1em;
+            margin-right: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        a button {
+            background-color: #28a745;
+        }
+
+        a button:hover {
+            background-color: #218838;
+        }
+
+        /* Animation for fade-in effect */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .no-employee {
+            color: red;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome! Fetch Your Details by Your ID</h1>
+
+        <!-- Form to enter ID and submit -->
+        <form action="display">
+            <label for="id">ID:</label>
+            <input type="number" name="id" id="id" placeholder="Enter Employee ID" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <div th:if="${employee != null}">
+            <h1><b th:text="${employee.name}"></b></h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Mobile</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td th:text="${employee.name}"></td>
+                        <td th:text="${employee.mobile}"></td>
+                        <td th:text="${employee.dept}"></td>
+                        <td th:text="${employee.salary}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div th:if="${errorMessage != null}">
+            <h1 class="no-employee" th:text="${errorMessage}"></h1>
+        </div>
+
+        <a href="/"><button>Home</button></a>
+    </div>
+</body>
+</html>
